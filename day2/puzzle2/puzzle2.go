@@ -14,8 +14,8 @@ func (p Solver) Solve() (checksum int) {
 	Line:
 		for i, a := range line[:len(line)-1] {
 			// iterate from 1 to the last cell
-			for b := i + 1; b < len(line); b++ {
-				max, min := a, line[b]
+			for _, b := range line[i+1:] {
+				max, min := a, b
 				if max < min {
 					max, min = min, max
 				}
